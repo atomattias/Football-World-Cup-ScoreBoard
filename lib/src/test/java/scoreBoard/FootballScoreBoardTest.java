@@ -57,6 +57,32 @@ public class FootballScoreBoardTest {
         assertTrue(game.isFinished());
         assertTrue(scoreBoard.finishedGames().contains(game));
     }
+    @Test
+    public void testGetFinishedGamesSortedByTotalScoreAndRecentlyAdded() {
+        // Create finished games with different total scores and finish dates
+        FootballGame game1 = new FootballGame(teamA, teamB);
+        FootballGame game2 = new FootballGame(teamC, teamD);
+        FootballGame game3 = new FootballGame(teamE, teamF);
+        scoreBoard.startGame(game1);
+        scoreBoard.startGame(game2);
+        scoreBoard.startGame(game3);
 
+        scoreBoard.updateScore(game1,3, 1); // Total score: 4
+        scoreBoard.updateScore(game2,2, 2); // Total score: 4
+        scoreBoard.updateScore(game3, 1, 0); // Total score: 1
+
+
+        scoreBoard.finishGame(game1);
+        scoreBoard.finishGame(game2);
+        scoreBoard.finishGame(game3);
+
+        List<FootballGame> sortedGames = scoreBoard.getFinishedGamesSortedByTotalScoreAndRecentlyAdded();
+
+        // Test sorting by total score (descending order)
+        assertEquals(4, sortedGames.get(0).getTotalScore());
+        assertEquals(4, sortedGames.get(1).getTotalScore());
+        assertEquals(1, sortedGames.get(2).getTotalScore());
+
+    }
 
 }
