@@ -28,5 +28,8 @@ public class FootballGame {
     public FootballTeam getAwayTeam() {
         return awayTeam;
     }
-
+    public void updateScore(int homeScore, int awayScore) {
+        this.homeScore = homeScore;
+        this.awayScore = awayScore;
+    }
 }
