@@ -27,4 +27,11 @@ public class FootballScoreBoard {
 
         game.updateScore(homeScore, awayScore);
     }
+    public void finishGame(FootballGame game) {
+        if (!games.contains(game)) {
+            throw new IllegalArgumentException("Game is not in progress.");
+        }
+
+        game.finishGame();
+    }
 }
