@@ -3,10 +3,17 @@ package scoreBoard;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 public class FootballScoreBoardTest {
     private FootballScoreBoard scoreBoard;
     private FootballTeam teamA;
     private FootballTeam teamB;
+    private FootballTeam teamC;
+    private FootballTeam teamD;
+    private FootballTeam teamE;
+    private FootballTeam teamF;
+
+
 
     @BeforeEach
     public void setup() {
@@ -14,6 +21,11 @@ public class FootballScoreBoardTest {
 
         teamA = new FootballTeam("Canada");
         teamB = new FootballTeam("Spain");
+        teamC = new FootballTeam("Brazil");
+        teamD = new FootballTeam("France");
+        teamE = new FootballTeam("Argentina");
+        teamF = new FootballTeam("Ghana");
+
     }
 
     @Test
@@ -45,5 +57,6 @@ public class FootballScoreBoardTest {
         assertTrue(game.isFinished());
         assertTrue(scoreBoard.finishedGames().contains(game));
     }
+
 
 }
