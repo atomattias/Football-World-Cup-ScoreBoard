@@ -20,15 +20,15 @@ public class FootballScoreBoardTest {
     public void testStartGameAddsGameToScoreBoard() {
         scoreBoard.startGame(teamA, teamB);
 
-        assertEquals(1, scoreBoard.getGames().size());
-        FootballGame game = scoreBoard.getGames().get(0);
+        assertEquals(1, scoreBoard.getGamesInProgress().size());
+        FootballGame game = scoreBoard.getGamesInProgress().get(0);
         assertEquals(teamA, game.getHomeTeam());
         assertEquals(teamB, game.getAwayTeam());
     }
     @Test
     public void testUpdateScoreUpdatesGameScore() {
         scoreBoard.startGame(teamA, teamB);
-        FootballGame game = scoreBoard.getGames().get(0);
+        FootballGame game = scoreBoard.getGamesInProgress().get(0);
 
         scoreBoard.updateScore(game, 2, 1);
 
@@ -38,12 +38,12 @@ public class FootballScoreBoardTest {
     @Test
     public void testFinishGameRemovesGameFromScoreBoard() {
         scoreBoard.startGame(teamA, teamB);
-        FootballGame game = scoreBoard.getGames().get(0);
+        FootballGame game = scoreBoard.getGamesInProgress().get(0);
 
         scoreBoard.finishGame(game);
 
         assertTrue(game.isFinished());
-        assertFalse(scoreBoard.getGames().contains(game));
+        assertTrue(scoreBoard.finishedGames().contains(game));
     }
 
 }
