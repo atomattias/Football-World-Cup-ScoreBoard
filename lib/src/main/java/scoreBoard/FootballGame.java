@@ -5,6 +5,8 @@ public class FootballGame {
     private final FootballTeam awayTeam;
     private int homeScore;
     private int awayScore;
+    private boolean finished;
+
 
 
     public FootballGame(FootballTeam homeTeam, FootballTeam awayTeam) {
@@ -12,6 +14,7 @@ public class FootballGame {
         this.awayTeam = awayTeam;
         this.homeScore = 0;
         this.awayScore = 0;
+        this.finished = false;
     }
     public int getHomeScore() {
         return homeScore;
@@ -34,5 +37,12 @@ public class FootballGame {
         }
         this.homeScore = homeScore;
         this.awayScore = awayScore;
+    }
+    public void finishGame() {
+        finished = true;
+    }
+
+    public boolean isFinished() {
+        return finished;
     }
 }

@@ -50,7 +50,7 @@ public class FootballGameTest {
 
     @Test
     public void testUpdateScoreThrowsExceptionForFinishedGame() {
-        game.finish();
+        game.finishGame();
 
         IllegalStateException exception = assertThrows(IllegalStateException.class, () -> game.updateScore(2, 1));
 
