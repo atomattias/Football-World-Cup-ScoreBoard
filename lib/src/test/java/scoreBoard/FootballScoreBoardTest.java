@@ -1,4 +1,4 @@
-package ScoreBoard;
+package scoreBoard;
 
 public class FootballScoreBoardTest {
 }
