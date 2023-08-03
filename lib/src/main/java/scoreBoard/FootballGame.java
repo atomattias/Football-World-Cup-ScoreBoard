@@ -41,8 +41,14 @@ public class FootballGame {
     public void finishGame() {
         finished = true;
     }
+    public void startGame() {
+        finished = false;
+    }
 
     public boolean isFinished() {
         return finished;
+    }
+    public int getTotalScore() {
+        return homeScore + awayScore;
     }
 }
