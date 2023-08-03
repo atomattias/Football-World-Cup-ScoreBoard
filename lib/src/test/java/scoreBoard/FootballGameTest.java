@@ -57,4 +57,14 @@ public class FootballGameTest {
         assertEquals("Cannot update score for a finished game.", exception.getMessage());
     }
 
+    @Test
+    public void testFinishGame() {
+        assertFalse(game.isFinished());
+
+        game.finishGame();
+
+        assertTrue(game.isFinished());
+    }
+
+
 }
