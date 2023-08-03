@@ -40,6 +40,12 @@ public class FootballGameTest {
         assertEquals(2, game.getHomeScore());
         assertEquals(1, game.getAwayScore());
     }
-
+    @Test
+    public void testUpdateScoreWithNegativeValuesThrowsException() {
+        // Attempt to update scores with negative values
+        assertThrows(IllegalArgumentException.class, () -> game.updateScore(-1, 2));
+        assertThrows(IllegalArgumentException.class, () -> game.updateScore(3, -2));
+        assertThrows(IllegalArgumentException.class, () -> game.updateScore(-1, -2));
+    }
 
 }
