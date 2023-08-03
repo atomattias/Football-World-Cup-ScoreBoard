@@ -53,5 +53,19 @@ public class FootballScoreBoard {
         finishedGames.add(game);
 
     }
+    public List<FootballGame> getFinishedGamesSortedByTotalScoreAndRecentlyAdded() {
+        List<FootballGame> sortedGames = new ArrayList<>(finishedGames);
+        sortedGames.sort((game1, game2) -> {
+            int scoreComparison = Integer.compare(game2.getTotalScore(), game1.getTotalScore());
+            if (scoreComparison != 0) {
+                // If total score is different, sort by total score in descending order
+                return scoreComparison;
+            } else {
+                // If total score is the same, sort by the most recently added game first
+                return Integer.compare(finishedGames.indexOf(game2), finishedGames.indexOf(game1));
+            }
+        });
 
+        return sortedGames;
+    }
 }
