@@ -28,4 +28,13 @@ public class FootballGameTest {
 
     }
 
+    @Test
+    public void testGameCreateTeamName() {
+
+        game = new FootballGame(teamA, teamB);
+        assertEquals(game.getHomeTeam().getName(), "Canada");
+        assertEquals(game.getAwayTeam().getName(), "Spain");
+
+    }
+
 }
