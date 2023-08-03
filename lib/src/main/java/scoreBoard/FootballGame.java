@@ -32,6 +32,10 @@ public class FootballGame {
         return awayTeam;
     }
     public void updateScore(int homeScore, int awayScore) {
+        if (finished) {
+            throw new IllegalStateException("Cannot update score for a finished game.");
+        }
+
         if (homeScore < 0 || awayScore < 0) {
             throw new IllegalArgumentException("Scores cannot be negative.");
         }
