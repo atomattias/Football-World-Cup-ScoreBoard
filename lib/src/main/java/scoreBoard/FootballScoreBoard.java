@@ -20,4 +20,11 @@ public class FootballScoreBoard {
         FootballGame newGame = new FootballGame(homeTeam, awayTeam);
         games.add(newGame);
     }
+    public void updateScore(FootballGame game, int homeScore, int awayScore) {
+        if (!games.contains(game)) {
+            throw new IllegalArgumentException("Game is not in progress.");
+        }
+
+        game.updateScore(homeScore, awayScore);
+    }
 }
