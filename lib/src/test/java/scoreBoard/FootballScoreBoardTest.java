@@ -25,4 +25,14 @@ public class FootballScoreBoardTest {
         assertEquals(teamA, game.getHomeTeam());
         assertEquals(teamB, game.getAwayTeam());
     }
+    @Test
+    public void testUpdateScoreUpdatesGameScore() {
+        scoreBoard.startGame(teamA, teamB);
+        FootballGame game = scoreBoard.getGames().get(0);
+
+        scoreBoard.updateScore(game, 2, 1);
+
+        assertEquals(2, game.getHomeScore());
+        assertEquals(1, game.getAwayScore());
+    }
 }
