@@ -1,5 +1,4 @@
 package scoreBoard;
-import java.time.LocalDateTime;
 
 public class FootballGame {
     private final FootballTeam homeTeam;
@@ -21,5 +20,13 @@ public class FootballGame {
         return awayScore;
     }
 
+
+    public FootballTeam getHomeTeam() {
+        return homeTeam;
+    }
+
+    public FootballTeam getAwayTeam() {
+        return awayTeam;
+    }
 
 }
