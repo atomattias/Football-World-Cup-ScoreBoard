@@ -35,4 +35,15 @@ public class FootballScoreBoardTest {
         assertEquals(2, game.getHomeScore());
         assertEquals(1, game.getAwayScore());
     }
+    @Test
+    public void testFinishGameRemovesGameFromScoreBoard() {
+        scoreBoard.startGame(teamA, teamB);
+        FootballGame game = scoreBoard.getGames().get(0);
+
+        scoreBoard.finishGame(game);
+
+        assertTrue(game.isFinished());
+        assertFalse(scoreBoard.getGames().contains(game));
+    }
+
 }
