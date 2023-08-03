@@ -16,25 +16,30 @@ public class FootballGameTest {
     public void setup() {
         teamA = new FootballTeam("Canada");
         teamB = new FootballTeam("Spain");
+        game = new FootballGame(teamA, teamB);
 
 
     }
     @Test
     public void testGameCreateWithZeroScore() {
 
-        game = new FootballGame(teamA, teamB);
         assertEquals(0, game.getHomeScore());
         assertEquals(0, game.getAwayScore());
 
     }
-
     @Test
     public void testGameCreateTeamName() {
 
-        game = new FootballGame(teamA, teamB);
         assertEquals(game.getHomeTeam().getName(), "Canada");
         assertEquals(game.getAwayTeam().getName(), "Spain");
 
     }
+    @Test
+    public void testUpdateScoreWithValidValues() {
+        game.updateScore(2, 1);
+        assertEquals(2, game.getHomeScore());
+        assertEquals(1, game.getAwayScore());
+    }
+
 
 }
