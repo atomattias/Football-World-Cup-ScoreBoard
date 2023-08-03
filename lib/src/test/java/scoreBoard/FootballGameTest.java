@@ -48,4 +48,13 @@ public class FootballGameTest {
         assertThrows(IllegalArgumentException.class, () -> game.updateScore(-1, -2));
     }
 
+    @Test
+    public void testUpdateScoreThrowsExceptionForFinishedGame() {
+        game.finish();
+
+        IllegalStateException exception = assertThrows(IllegalStateException.class, () -> game.updateScore(2, 1));
+
+        assertEquals("Cannot update score for a finished game.", exception.getMessage());
+    }
+
 }
