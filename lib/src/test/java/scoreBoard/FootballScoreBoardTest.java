@@ -83,6 +83,11 @@ public class FootballScoreBoardTest {
         assertEquals(4, sortedGames.get(1).getTotalScore());
         assertEquals(1, sortedGames.get(2).getTotalScore());
 
+        // Test sorting by most recently added game (descending order)
+        assertEquals(game2, sortedGames.get(0));
+        assertEquals(game1, sortedGames.get(1));
+        assertEquals(game3, sortedGames.get(2));
+
     }
 
 }
